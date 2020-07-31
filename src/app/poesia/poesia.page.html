@@ -1,0 +1,50 @@
+<ion-header>
+  <ion-toolbar>
+    <ion-title>Poesía</ion-title>
+  </ion-toolbar>
+</ion-header>
+
+<ion-content *ngIf="(poesia | async) as poesia">
+
+  <ion-card>
+    <ion-card-header>
+      <ion-card-title>{{poesia.titulo}}</ion-card-title>
+      <ion-card-subtitle>Autor: {{poesia.autor}}</ion-card-subtitle>
+      <ion-card-subtitle>Descripción: {{poesia.descripcion}}</ion-card-subtitle>
+    </ion-card-header>
+  </ion-card>
+
+  <ion-card *ngIf="poesia.contenido">
+    <ion-card-header>
+      <ion-card-title>Contenido</ion-card-title>
+    </ion-card-header>
+    <ion-card-content>
+      {{poesia.contenido}}
+    </ion-card-content>
+  </ion-card>
+
+  <ion-card *ngIf="!poesia.contenido">
+    <ion-card-header>
+      <ion-card-title>Imagen</ion-card-title>
+    </ion-card-header>
+    <div class="vertical-center">
+      <img [src]="poesia.image.url" width="200" height="298"/>
+    </div>
+  </ion-card>
+
+  <div class="ion-padding">
+    <!-- Llamar al método showEditarEmpleo enviando el uid del empleo-->
+    <ion-button expand="block" type="submit" class="ion-no-margin" (click)="showComentarPoesia(poesia.uid)">Comentar</ion-button>
+  </div>
+
+  <h5>Comentarios:</h5>
+  <ion-list>
+    <ion-item *ngFor="let comentario of comentarios | async; trackBy: trackByFN">
+      <ion-label >
+        <h2>{{comentario.comentario}}</h2>
+      </ion-label>
+    </ion-item>  
+
+  </ion-list>
+
+</ion-content>

@@ -1,0 +1,48 @@
+<ion-header>
+  <ion-toolbar>
+    <ion-title>Crear Poesia</ion-title>
+  </ion-toolbar>
+</ion-header>
+
+<ion-content>
+
+  <ion-list lines="full" class="ion-no-margin ion-no-padding">
+    <ion-item>
+      <ion-label position="stacked">Titulo <ion-text color="danger">*</ion-text></ion-label>
+      <ion-input required type="text" [(ngModel)]="poesia.titulo"></ion-input>
+    </ion-item>
+
+    <ion-item *ngIf="(user | async) as user">
+      <ion-label position="stacked">Autor<ion-text color="danger">*</ion-text></ion-label>
+      <ion-label position="stacked">{{user.displayName}}</ion-label>
+    </ion-item>      
+<br />
+
+  <ion-item>
+    <ion-label position="stacked">Contenido<ion-text color="danger">*</ion-text></ion-label>
+    <ion-textarea [(ngModel)]="poesia.contenido"></ion-textarea>
+  </ion-item>
+
+    <ion-item>
+      <ion-label position="stacked">Descripcion<ion-text color="danger">*</ion-text></ion-label>
+      <ion-input required type="text" [(ngModel)]="poesia.descripcion"></ion-input>
+    </ion-item>
+    
+    <ion-item>
+      <ion-label position="stacked">Fecha<ion-text color="danger">*</ion-text></ion-label>
+      <ion-datetime displayFormat="MMM DD, h:mm A" [(ngModel)]="poesia.fecha">Ingresar fecha</ion-datetime>
+    </ion-item>
+
+
+    <ion-item>
+      <ion-button type="button" (click)="tomarFoto()">Tomar Foto</ion-button>
+      <img [src]="base64Image">
+    </ion-item>
+    
+  </ion-list>
+
+  <div class="ion-padding">
+    <ion-button expand="block" type="submit" class="ion-no-margin" (click)="guardarPoesia()">Crear Empleo</ion-button>
+  </div>
+
+</ion-content>
