@@ -1,0 +1,7 @@
+{
+  "name": "PoesiasFigueroaStalin",
+  "integrations": {
+    "capacitor": {}
+  },
+  "type": "angular"
+}
