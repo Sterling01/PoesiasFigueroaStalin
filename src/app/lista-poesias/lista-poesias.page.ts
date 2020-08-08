@@ -16,7 +16,6 @@ export class ListaPoesiasPage implements OnInit {
 
   ngOnInit() {
     this.poesias=this.poesiasServices.getPoesias()
-
   }
 
   showCrearPoesia(){

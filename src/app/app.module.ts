@@ -36,7 +36,7 @@ import { AngularFirestore } from '@angular/fire/firestore';
     Camera,
     GooglePlus,
     { provide: RouteReuseStrategy, useClass: IonicRouteStrategy },
-    AngularFirestore
+    AngularFirestore,
   ],
   bootstrap: [AppComponent]
 })

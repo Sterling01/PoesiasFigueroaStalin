@@ -1,4 +1,3 @@
-
 export class Poesia {
     uid: string;
     numero: number;

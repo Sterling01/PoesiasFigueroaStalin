@@ -40,7 +40,7 @@ export class CrearPoesiaPage implements OnInit {
     this.user.subscribe(data => {
       this.poesia.autor=data.displayName
     })
-    
+
     //Insertar un nuevo empleo
     let number = await this.poesiaService.saveEmpleado2(this.poesia)
     console.log("Nuevo empleo guardado", number)
